@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.austinhlee.android.miniappstarwars.MovieDetailActivity">
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/detailTitle_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="movietitlewefffffffffffffffffffff" />
+
+        <ImageView
+            android:id="@+id/detail_image_view"
+            android:layout_width="140dp"
+            android:layout_height="230dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/ic_launcher_background"/>
+
+        <TextView
+            android:id="@+id/detailDescrip_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="this is a descrip"/>
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/already_seen"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/want_to_see"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/do_not_like"/>
+
+        </RadioGroup>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/submit"/>
+
+    </LinearLayout>
+
+</ScrollView>

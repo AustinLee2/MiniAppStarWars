@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MiniAppStarWars</string>
+    <string name="already_seen">Already seen</string>
+    <string name="want_to_see">Want to see</string>
+    <string name="do_not_like">Do not like</string>
+    <string name="submit">Submit</string>
 </resources>
