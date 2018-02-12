@@ -1,7 +1,6 @@
 package com.austinhlee.android.miniappstarwars;
 
 import android.content.Context;
-import android.support.v4.widget.ViewDragHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -74,7 +73,20 @@ public class MovieAdapter extends BaseAdapter {
 
         titleTextView.setText(movie.getTitle());
         descripTextView.setText(movie.getDescription());
-//        characterTextView.setText(movie.getMain_characters());
+        String mainCharString = new String();
+        ArrayList<String> mainCharList = movie.getMain_characters();
+        boolean last = false;
+        for (int j = 0; j < 3; j++) {
+            if (!last) {
+                mainCharString += mainCharList.get(j) + ", ";
+                if (j == 1){
+                    last = true;
+                }
+            }
+            else
+                mainCharString += mainCharList.get(j);
+        }
+        characterTextView.setText(mainCharString);
         hasSeenTextView.setText(movie.getSeen());
         Picasso.with(mContext).load(movie.getPosterURL()).into(thumbnailImageView);
 

@@ -7,6 +7,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.InputStream;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -17,7 +18,7 @@ public class Movie {
 
     private String title;
     private int episode_number;
-    private String main_characters;
+    private ArrayList<String> main_characters;
     private String description;
     private String posterURL;
     private String url;
@@ -35,16 +36,22 @@ public class Movie {
         try{
             String jsonString = loadJsonFromAsset("movies.json", context);
             JSONObject json = new JSONObject(jsonString);
+
             JSONArray movies = json.getJSONArray("movies");
 
             for (int i = 0; i < movies.length(); i++){
                 Movie movie = new Movie();
                 movie.setTitle(movies.getJSONObject(i).getString("title"));
                 movie.setEpisode_number(movies.getJSONObject(i).getInt("episode_number"));
+                JSONArray arrJson = movies.getJSONObject(i).getJSONArray("main_characters");
+                ArrayList<String> arr = new ArrayList<>();
+                for(int j = 0; j < arrJson.length(); j++)
+                    arr.add(arrJson.getString(j));
+                movie.setMain_characters(arr);
                 movie.setDescription(movies.getJSONObject(i).getString("description"));
                 movie.setPosterURL(movies.getJSONObject(i).getString("poster"));
                 movie.setUrl(movies.getJSONObject(i).getString("url"));
-                movie.setMain_characters(movies.getJSONObject(i).getString("main_characters"));
+
                 //add to arrayList
                 movieList.add(movie);
             }
@@ -91,11 +98,11 @@ public class Movie {
         this.episode_number = episode_number;
     }
 
-    public String getMain_characters() {
+    public ArrayList<String> getMain_characters() {
         return main_characters;
     }
 
-    public void setMain_characters(String main_characters) {
+    public void setMain_characters(ArrayList<String> main_characters) {
         this.main_characters = main_characters;
     }
 
