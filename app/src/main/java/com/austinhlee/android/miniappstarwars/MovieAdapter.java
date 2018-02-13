@@ -87,7 +87,22 @@ public class MovieAdapter extends BaseAdapter {
                 mainCharString += mainCharList.get(j);
         }
         characterTextView.setText(mainCharString);
-        hasSeenTextView.setText(movie.getSeen());
+        int seenInt = movie.getSeen();
+        switch (seenInt){
+            case 1:
+                hasSeenTextView.setText("Already seen");
+                break;
+            case 2:
+                hasSeenTextView.setText("Want to see");
+                break;
+            case 3:
+                hasSeenTextView.setText("Do not like");
+                break;
+
+            default:
+                hasSeenTextView.setText("Has seen?");
+                break;
+        }
         Picasso.with(mContext).load(movie.getPosterURL()).into(thumbnailImageView);
 
         return view;

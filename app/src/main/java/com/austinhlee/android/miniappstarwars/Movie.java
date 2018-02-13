@@ -22,7 +22,7 @@ public class Movie {
     private String description;
     private String posterURL;
     private String url;
-    private String seen;
+    private int seen;
 
     public static ArrayList<Movie> getMoviesFromFile(String filename, Context context){
         ArrayList<Movie> movieList = new ArrayList<Movie>();
@@ -130,11 +130,11 @@ public class Movie {
         this.url = url;
     }
 
-    public String getSeen() {
+    public int getSeen() {
         return seen;
     }
 
-    public void setSeen(String seen) {
+    public void setSeen(int seen) {
         this.seen = seen;
     }
 }
