@@ -1,6 +1,7 @@
 package com.austinhlee.android.miniappstarwars;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -91,22 +92,30 @@ public class MovieAdapter extends BaseAdapter {
         switch (seenInt){
             case 1:
                 hasSeenTextView.setText("Already seen");
+                hasSeenTextView.setTextColor(Color.parseColor("#43A047"));
                 break;
             case 2:
                 hasSeenTextView.setText("Want to see");
+                hasSeenTextView.setTextColor(Color.BLUE);
                 break;
             case 3:
                 hasSeenTextView.setText("Do not like");
+                hasSeenTextView.setTextColor(Color.RED);
                 break;
 
             default:
                 hasSeenTextView.setText("Has seen?");
+                hasSeenTextView.setTextColor(Color.LTGRAY);
                 break;
         }
         Picasso.with(mContext).load(movie.getPosterURL()).into(thumbnailImageView);
 
         return view;
 
+    }
+
+    public ArrayList<Movie> getMovieList(){
+        return mMovieList;
     }
 
     private static class ViewHolder{

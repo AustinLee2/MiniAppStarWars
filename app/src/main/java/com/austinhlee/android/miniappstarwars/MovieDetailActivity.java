@@ -1,5 +1,6 @@
 package com.austinhlee.android.miniappstarwars;
 
+import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -25,6 +26,7 @@ public class MovieDetailActivity extends AppCompatActivity {
     private RadioButton mAlreadySeenRadioButton;
     private RadioButton mDontLikeButton;
 
+
     private Intent mIntent;
     private int mCheckInt;
 
@@ -41,6 +43,7 @@ public class MovieDetailActivity extends AppCompatActivity {
 
         Intent intent = this.getIntent();
         String title = intent.getStringExtra("title");
+        getSupportActionBar().setTitle(title);
         String imageURL = intent.getStringExtra("posterURL");
         Picasso.with(mContext).load(imageURL).into(mImageView);
         mTextView.setText(title);
@@ -73,7 +76,7 @@ public class MovieDetailActivity extends AppCompatActivity {
             public void onClick(View view) {
                 mIntent=new Intent();
                 mIntent.putExtra("seen",mCheckInt);
-                setResult(1,mIntent);
+                setResult(RESULT_OK,mIntent);
                 finish();
             }
         });

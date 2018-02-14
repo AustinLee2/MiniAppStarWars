@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         mContext = this;
         mSeen = 0;
 
+
         final ArrayList<Movie> movieList = Movie.getMoviesFromFile("movies.json", this);
 
         mMovieAdapter = new MovieAdapter(this, movieList);
@@ -51,11 +52,11 @@ public class MainActivity extends AppCompatActivity {
 
         super.onActivityResult(requestCode,resultCode,data);
         if (requestCode == 1){
-            mSeen = data.getIntExtra("seen",0);;
-            mMovie.setSeen(mSeen);
-            mMovieAdapter.notifyDataSetChanged();
+            if (resultCode == RESULT_OK) {
+                mSeen = data.getIntExtra("seen", 0);
+                mMovie.setSeen(mSeen);
+                mMovieAdapter.notifyDataSetChanged();
+            }
         }
-
-
     }
 }
