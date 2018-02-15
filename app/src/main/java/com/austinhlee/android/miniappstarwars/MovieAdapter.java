@@ -105,7 +105,7 @@ public class MovieAdapter extends BaseAdapter {
 
             default:
                 hasSeenTextView.setText("Has seen?");
-                hasSeenTextView.setTextColor(Color.LTGRAY);
+                hasSeenTextView.setTextColor(Color.GRAY);
                 break;
         }
         Picasso.with(mContext).load(movie.getPosterURL()).into(thumbnailImageView);
