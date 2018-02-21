@@ -1,6 +1,5 @@
 package com.austinhlee.android.miniappstarwars;
 
-import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -40,11 +39,11 @@ public class MovieDetailActivity extends AppCompatActivity {
         mImageView = findViewById(R.id.detail_image_view);
         mDescripTextView = findViewById(R.id.detailDescrip_text_view);
 
-
         Intent intent = this.getIntent();
         String title = intent.getStringExtra("title");
         getSupportActionBar().setTitle(title);
         String imageURL = intent.getStringExtra("posterURL");
+
         Picasso.with(mContext).load(imageURL).into(mImageView);
         mTextView.setText(title);
         mDescripTextView.setText(intent.getStringExtra("description"));
@@ -54,7 +53,6 @@ public class MovieDetailActivity extends AppCompatActivity {
         mDontLikeButton = findViewById(R.id.do_not_like_button);
 
         mRadioGroup = findViewById(R.id.detail_radio_group);
-
         mRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {

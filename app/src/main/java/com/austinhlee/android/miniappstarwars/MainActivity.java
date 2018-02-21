@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
         mContext = this;
         mSeen = 0;
 
-
         final ArrayList<Movie> movieList = Movie.getMoviesFromFile("movies.json", this);
 
         mMovieAdapter = new MovieAdapter(this, movieList);

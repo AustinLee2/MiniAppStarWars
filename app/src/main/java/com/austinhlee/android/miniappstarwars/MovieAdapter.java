@@ -114,10 +114,6 @@ public class MovieAdapter extends BaseAdapter {
 
     }
 
-    public ArrayList<Movie> getMovieList(){
-        return mMovieList;
-    }
-
     private static class ViewHolder{
         public TextView titleTextView;
         public TextView descripTextView;
